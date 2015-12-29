@@ -21,6 +21,11 @@ class TasksController < ApplicationController
         render :show_form
     end
     
+    def update
+        @task = Task.find(params[:id])
+        @task.update_attributes(task_params)
+    end
+    
     private
     
     def task_params
