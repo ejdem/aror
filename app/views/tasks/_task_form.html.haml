@@ -1,0 +1,10 @@
+.modal-header
+  %h3
+    = task.new_record? ? 'New Task' : "edit task #{task.title}"
+= simple_form_for task, class: 'clearfix', remote: true do |f|
+  .modal-body
+    = f.input :title
+    = f.input :note
+    = f.input :completed, as: :string, input_html: { class: 'datepicker' }
+  .modal-footer
+    = f.submit 'save', class: 'btn btn-prmiary'
